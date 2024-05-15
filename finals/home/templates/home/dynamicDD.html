@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escholar</title>
+</head>
+
+<style>
+    body {
+        font-family: Tahoma, sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+    }
+    .header {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        display: flex;                      /*to straight*/
+        justify-content: space-between;     /*put to the right*/
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        
+    }
+    .header h1 {
+        margin:0;
+        font-size: 40px;
+    }
+    .sidebar {
+        background-color: #666;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        text-align: left;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        height: 100vh;
+        width: 200px;
+        position: fixed;
+        top: 50px;
+    }
+    select{
+        width: 100%;
+        height: 30px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+    }
+    #Tuition{
+        width: 98%;
+        height: 25px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        border: none;
+    }
+    #Board{
+        width: 98%;
+        height: 25px;
+        margin-bottom: 16px;
+        border-radius: 4px;
+        background-color: #f1f1f1;
+        border: none;
+    }
+    .reset{
+        width:50px;
+        height: 25px;
+        background-color: #ff0000;
+        color: white;
+        font-weight: 600; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .submit{
+        width:60px;
+        height: 25px;
+        background-color: #4CAF50;
+        color: white;
+        font-weight: 600; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        margin-right: 10px;
+        text-align: center;
+        font-size: 18px;
+        cursor: pointer;
+        display: inline-block;
+        text-decoration: none;
+    }
+    .content {
+        margin-left: 250px; 
+        padding: 10px;
+        background-color: #f4f4f4;
+        justify-content: center; 
+        align-items: flex-start; 
+        height: 85vh;
+        text-align: center; 
+    }
+    .heading-container {
+        display: flex;
+        margin: 60px 60px 60px 60px;
+        justify-content: space-evenly;
+    }
+    .search-bar {
+        width: 100%;
+        max-width: 400px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+        margin-top: 100px;
+    }
+    .search-button {
+        padding: 8px 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .search-button:hover {
+        background-color: #45a049;
+    }
+
+    .Rectangle1{
+        width: 375px; 
+        height: 300px; 
+        left: 0px; 
+        top: 0px; 
+        position: absolute; 
+        background: white; 
+        border-radius: 15px; 
+        border: 1px 
+        rgba(0, 0, 0, 0.25) solid;
+    }
+    .Rectangle2{
+        width: 375px; 
+        height: 124px; 
+        left: 0px; 
+        top: 0px; 
+        position: absolute; 
+        background: #1C3F94; 
+        border-top-left-radius: 15px; 
+        border-top-right-radius: 15px
+    }
+    .Logo1 {
+        width: 100.42px; 
+        height: 100px; 
+        left: 242px; 
+        top: 74px; 
+        position: absolute
+    }
+    .University_Name{
+        width: 332px; 
+        height: 30px; 
+        left: 23px; 
+        top: 17px; 
+        text-align: left;
+        position: absolute; 
+        color: white; 
+        font-size: 24px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 400; 
+        letter-spacing: 0.24px; 
+        word-wrap: break-word;
+    }
+    .Address1{
+        width: 192px; 
+        height: 44px; 
+        left: 21px; 
+        top: 52px; 
+        text-align: left;
+        position: absolute; 
+        color: white; 
+        font-size: 14px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 400; 
+        letter-spacing: 0.14px; 
+        word-wrap: break-word;
+    }
+    .ChosenCourse1{
+        width: 180px; 
+        height: 20px; 
+        left: 90px; 
+        top: 160px; 
+        text-align: left;
+        position: absolute; 
+        color: black; 
+        font-size: 14px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 400; 
+        letter-spacing: 0.14px; 
+        word-wrap: break-word
+    }
+    .Tuition1{
+        width: 190px; 
+        height: 1=20px; 
+        left: 90px; 
+        top: 190px; 
+        text-align: left;
+        position: absolute; 
+        color: black; 
+        font-size: 14px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 400; 
+        letter-spacing: 0.14px; 
+        word-wrap: break-word
+    }
+    .BoardPassing1{
+        width: 180px; 
+        height: 20px; 
+        left: 90px; 
+        top: 235px; 
+        text-align: left;
+        position: absolute; 
+        color: black; 
+        font-size: 14px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 400; 
+        letter-spacing: 0.14px; 
+        word-wrap: break-word
+    }
+    .Compare1 {
+        width: 121px; 
+        height: 28px; 
+        left: 230px; 
+        top: 257px; 
+        position: absolute;
+    }
+    .AddToCompare1 {
+        width: 100%; 
+        height: 100%; 
+        top: 7px; 
+        left: 0px;
+        position: absolute; 
+        background-color: #26A406; 
+        color: white; 
+        font-size: 12px; 
+        font-family: Tahoma, sans-serif; 
+        font-weight: 600; 
+        border-radius: 10px; 
+        border: none;
+        cursor: pointer;
+    }
+    .Box{
+        width: 375px; 
+        height: 305px; 
+        position: relative
+    }
+    .universities {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .reset{
+        width:50px;
+        height: 25px;
+        background-color: #ff0000;
+        color: white;
+        font-weight: 600; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    .submit{
+        width:60px;
+        height: 25px;
+        background-color: #4CAF50;
+        color: white;
+        font-weight: 600; 
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+</style>
+   
+
+<body>
+
+    <div class="header">
+        <h1>Escholar</h1>
+        <div>
+            <a href="{% url 'dynamicDD' %}"><button class="button">Home</button></a>
+            <button class="button">Compare</button>
+            <a href="{% url 'about' %}"><button class="button">About Us</button></a>
+            <button class="button"><img src="profile.png" alt="Profile" style="width: 20px; height: 20px;"></button>
+        </div>
+    </div>
+
+    <div class="sidebar">
+        <div class="filter">
+            <h2>Filter</h2> <hr><br>
+            <form>
+                <label for="Course">Course</label> <br>
+                <select id="Course" name="selected_course">
+                    <option value="None">None</option>
+                    {% for course in courses%}
+                    <option value="{{course.name}}">{{course.name}}</option>
+                    {% endfor %}
+                </select> <br>
+
+                <label for="Location">Location</label> <br>
+                <select id="Location" name="selected_location">
+                    <option value="None">None</option>
+                    {% for location in locations%}
+                    <option value="{{location}}">{{location}}</option>
+                    {% endfor %}
+                </select> <br>
+                
+                <label for="Tuition">Tuition</label> <br>
+                <input id ="Tuition" type="number" name="selected_tuition">
+                <br>
+                
+                <label for="Board">Board Passing</label> <br>
+                <input id ="Tuition" type="number" name="selected_passingrate">
+                <br>
+
+              
+                <input type="reset" style="margin-right: 84px;" class="reset">
+                <input type="submit" class="submit">
+            </form>
+        </div>
+    </div>
+
+    <div class="content">
+        <form>
+            <input type="text" class="search-bar" placeholder="Search..." name="searchquery">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+
+        <div class = "universities">
+            {%for university in universities%}
+            <div class="heading-container">
+                <div class="Box">
+                    <div class="Rectangle1"></div>
+                    <div class="Rectangle2" style="background: {{university.themecolor}};"></div>
+                    <img class="Logo1" src="{{university.logoUrl}}" />
+                    <div class="University_Name">{{university.name}}</div>
+                    <div class="Address1">{{university.location}}</div>
+                    {% if coursefilter and coursefilter != "None" %}
+                        {% for uni_course in university.universitycourse_set.all %}
+                            {% if uni_course.course.name == coursefilter %}
+                                <div>
+                                <div class="ChosenCourse1">{{uni_course.course.name}}</div>    
+                                <div class="Tuition1">P{{uni_course.estimated_tuition_minimum}} - P{{uni_course.estimated_tuition_maximum}} Yearly</div>
+                                <div class="BoardPassing1">{{uni_course.board_passing_rate}}</div>
+                                </div>
+                                <a href="{% url 'courseView' uni_course.id %}"><div class="Compare1">
+                                    <button class="AddToCompare1">Go to page</button>
+                                </div></a>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <div>
+                        <div class="ChosenCourse1">Course Not Selected</div>    
+                        <div class="Tuition1">Tuition Information Not Available</div>
+                        <div class="BoardPassing1">Board Information Not Available</div>
+                        </div>
+                        <a href="{% url 'uniView' university.id %}"><div class="Compare1">
+                            <button class="AddToCompare1">Go to page</button>
+                        </div></a>
+                    {% endif %}
+
+                    
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+
+</body>
+</html>
